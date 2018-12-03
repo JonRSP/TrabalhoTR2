@@ -24,9 +24,9 @@ ssize_t PacoteOut::Send(HTTP::Header msg){
 	clienteEnd.ai_socktype = 0;
 	clienteEnd.ai_flags = 0;
 	clienteEnd.ai_protocol =IPPROTO_TCP;
-		int info = getaddrinfo(msg.host.c_str(), msg.porta.c_str(), &clienteEnd, &cEnd);
-		//printf("info=%d", info);
-	 if(info == 0){
+	int info = getaddrinfo(msg.host.c_str(), msg.porta.c_str(), &clienteEnd, &cEnd);
+	//printf("info=%d", info);
+	if(info == 0){
 		socketOut = socket(AF_INET, SOCK_STREAM, 0);
 		if(socketOut < 0){
 			printf("error ao criar socket");
@@ -40,16 +40,13 @@ ssize_t PacoteOut::Send(HTTP::Header msg){
 			printf("erro no socket\n");
 			exit(1);
 		}
-	 }
-	 std::cout << msg.to_string() << '\n';
+	}
+	//std::cout << msg.to_string() << '\n';
 	ssize_t enviado = send(socketOut, msg.to_string().c_str(), msg.to_string().length(), 0);
 //printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d",EAGAIN,EWOULDBLOCK,EBADF,ECONNRESET,EDESTADDRREQ,EINTR,EMSGSIZE,ENOTCONN,ENOTSOCK,EOPNOTSUPP,EPIPE,EACCES,EIO,ENETDOWN,ENETUNREACH,ENOBUFS);
-/*
-EADDRNOTAVAIL,EAFNOSUPPORT,EALREADY,EBADF,ECONNREFUSED,EINPROGRESS,EINTR,EISCONN,ENETUNREACH,ENOTSOCK,EPROTOTYPE,ETIMEDOUT,EIO,ELOOP,ENAMETOOLONG,ENOENT,ENOTDIR,EACCES,EADDRINUSE,ECONNRESET,EHOSTUNREACH,EINVAL,ELOOP,ENAMETOOLONG,ENETDOWN,ENOBUFS,EOPNOTSUPP
-*/
 
-
-
+//EADDRNOTAVAIL,EAFNOSUPPORT,EALREADY,EBADF,ECONNREFUSED,EINPROGRESS,EINTR,EISCONN,ENETUNREACH,ENOTSOCK,EPROTOTYPE,ETIMEDOUT,EIO,ELOOP,ENAMETOOLONG,ENOENT,ENOTDIR,EACCES,EADDRINUSE,ECONNRESET,EHOSTUNREACH,EINVAL,ELOOP,ENAMETOOLONG,ENETDOWN,ENOBUFS,EOPNOTSUPP
+	
 	if(enviado < 0){
 		printf("nao foi possivel enviar dado\n");
 		exit(1);

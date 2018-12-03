@@ -19,7 +19,6 @@ void Servidor::Inicia(){
 	while(true){
 	pIn.accConexao();
 	pIn.getRequests();
-
 	if(!requests.empty())
 		std::swap( requests, sendRequest );
 
@@ -29,16 +28,19 @@ void Servidor::Inicia(){
 		for (auto &i : sendRequest) {
 			//std::cout << i.to_string() << '\n';
 			//std::cout << "\nEnviando request para " << i.host.c_str()<<i.porta.c_str();
+
+			
 			if(pOut.Send(i) == -1){
+
 				printf("\nNão foi possível enviar request\n");
 				exit(1);
 			}
 		}
 		sendRequest.clear();
 	}
+
 	pOut.responseRecebido();
-	if(!responses.empty())
-	{
+	if(!responses.empty()){
 		std::swap(responses, sendResponse);
 	}
 
@@ -55,5 +57,5 @@ void Servidor::Inicia(){
 
 		sendResponse.clear();
 	}
-}
+ }
 }

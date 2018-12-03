@@ -61,6 +61,7 @@ void PacoteIn::getRequests(){
 	if(valRead > 0){
 		//std::cout << "ok " << HTTP::Header(mensagem).to_string() << '\n';
 		requestsRecebidos.push_back(HTTP::Header(mensagem));
+		
 	}else if(0==valRead){
 		printf("não tem requests \n");
 	}else{

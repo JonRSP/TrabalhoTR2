@@ -21,17 +21,20 @@ namespace HTTP{
 }
 
 	std::string Header::to_string(bool include){
-		std::string msg;
-		memset(&msg, 0,sizeof(msg));
+		std::string msg("");
+		//memset(&msg, 0,sizeof(std::string));
+
+
 		msg += destino + "\n";
 		msg += "Host: ";
 		msg+= host;
 	//	msg += ":";
 	//	msg += porta;
 
-		//std::cout << "/* message */" <<  host.c_str();
+		//std::cout << " message " <<  host.c_str();Dump::DumpHtml(Header::Header(i).corpo.to_string());
 		//msg += "Host: " +host+':'+porta;
 		msg += include? corpo : "";
+		
 		return msg;
 
 	}

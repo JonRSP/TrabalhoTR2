@@ -1,5 +1,6 @@
 
-
+#include "Proxy_Server.hpp"
+#include "HTTP_Request.hpp"
 int 							 serverFd, socketClient, socketServidor;
 struct sockaddr_in endereco;
 struct sockaddr_in enderecoServidor;
@@ -11,6 +12,10 @@ char               buffer[64768];
 
 void Proxy_Server::init(int porta)
 {
+    if(porta == 0)
+    {
+        porta = 8228;
+    }
 	enderecoTamanho = sizeof(endereco);
 	if((serverFd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
   {

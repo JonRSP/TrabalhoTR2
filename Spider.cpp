@@ -1,9 +1,9 @@
-#include "../lib/HTML_Parser.hpp"
-#include "../lib/Spider.hpp"
-#include "../lib/Proxy_Server.hpp"
-#include "../lib/HTTP_Request.hpp"
-#include "../lib/HTTP_Response.hpp"
-#include "../lib/String_Functions.hpp"
+#include "HTML_Parser.hpp"
+#include "Spider.hpp"
+#include "Proxy_Server.hpp"
+#include "HTTP_Request.hpp"
+#include "HTTP_Response.hpp"
+#include "String_Functions.hpp"
 using namespace std;
 
 
@@ -148,7 +148,7 @@ void Spider::geraArvore(int niveis)
 				request.url             = *url;
 				request.campos["Host:"] = host;
 
-				cout << "Inspecting "<< *url<<endl;
+
 				string reply           = proxy.make_request(request.montaRequest());
 				HTTP_Response response = HTTP_Response(reply);
 
@@ -233,7 +233,7 @@ void Spider::dump(int niveis)
   command.append(host);
 	system(command.c_str());
 
-	for(std::map<string,string>::iterator it = htmls.begin(); it != htmls.end(); ++it)
+   for(std::map<string,string>::iterator it = htmls.begin(); it != htmls.end(); ++it)
 	{
 		cout << "Saving file: " << dicionario[it->first] << endl;
     String_Functions::stringParaArquivo(it->second, host.c_str(), dicionario[it->first].c_str());

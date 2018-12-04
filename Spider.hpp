@@ -5,7 +5,9 @@
 #include <vector>
 #include <map>
 #include <string.h>
+#include <set>
 
+using namespace std;
 class Spider
 {
 public:
@@ -14,7 +16,7 @@ public:
 	bool                                         valido;
 	std::string 																 root;
 	std::string 																 host;
-	std::set<std::string> 											 urlsVisitadas;
+    std::set<std::string>urlsVisitadas;
 	std::map<std::string, std::string> 					 htmls;
 	std::map<std::string, std::string>           dicionario;
 	std::map<std::string, std::string>           nomes;

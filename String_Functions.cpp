@@ -1,4 +1,4 @@
-#include "../lib/String_Functions.hpp"
+#include "String_Functions.hpp"
 using namespace std;
 
 std::vector<std::string> String_Functions::split(std::string str, const char * delimitador)
@@ -45,11 +45,19 @@ int String_Functions::stringParaArquivo(std::string str, const char *path, const
 {
 
     FILE *f;
-    string caminhoCompletoCompleto(path);
+    string caminhoCompletoCompleto("");
+    caminhoCompletoCompleto.append(path);
     caminhoCompletoCompleto.append("/");
     caminhoCompletoCompleto.append(file);
-    f = fopen(caminhoCompletoCompleto.c_str(), "wb");
-    fwrite( str.data(),str.length(),1, f);
+    f = fopen(caminhoCompletoCompleto.c_str(), "w");
+    if(f==NULL)
+    {
+        printf("ERRO NO PONTEIRO");
+        exit(2);
+    }
+    //fwrite( str.data(),str.length(),1, f);
+  //  printf("%s",str.c_str());
+    fprintf(f,"%s",str.c_str());
     fclose(f);
 
     return 0;

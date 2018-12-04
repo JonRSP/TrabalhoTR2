@@ -1,4 +1,4 @@
-#include "../lib/HTML_Parser.hpp"
+#include "HTML_Parser.hpp"
 
 std::set<std::string> HTML_Parser::getUrl(const char *corpo)
 {

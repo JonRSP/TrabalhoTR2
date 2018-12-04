@@ -1,4 +1,4 @@
-#include "../include/String_Functions.hpp"
+#include "../lib/String_Functions.hpp"
 using namespace std;
 
 std::vector<std::string> String_Functions::split(std::string str, const char * delimitador)

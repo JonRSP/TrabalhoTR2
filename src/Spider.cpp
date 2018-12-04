@@ -1,9 +1,9 @@
-#include "../include/HTML_Parser.hpp"
-#include "../include/Spider.hpp"
-#include "../include/Proxy_Server.hpp"
-#include "../include/HTTP_Request.hpp"
-#include "../include/HTTP_Response.hpp"
-#include "../include/String_Functions.hpp"
+#include "../lib/HTML_Parser.hpp"
+#include "../lib/Spider.hpp"
+#include "../lib/Proxy_Server.hpp"
+#include "../lib/HTTP_Request.hpp"
+#include "../lib/HTTP_Response.hpp"
+#include "../lib/String_Functions.hpp"
 using namespace std;
 
 

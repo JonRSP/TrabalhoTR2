@@ -1,5 +1,5 @@
-#include "../include/HTTP_Response.hpp"
-#include "../include/String_Functions.hpp"
+#include "../lib/HTTP_Response.hpp"
+#include "../lib/String_Functions.hpp"
 using namespace std;
 
 HTTP_Response::HTTP_Response(std::string stringResponse)

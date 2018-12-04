@@ -1,5 +1,4 @@
-#include "../include/Proxy_Server.hpp"
-#include "../include/HTTP_Request.hpp"
+
 
 int 							 serverFd, socketClient, socketServidor;
 struct sockaddr_in endereco;

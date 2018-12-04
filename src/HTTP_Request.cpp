@@ -1,5 +1,5 @@
-#include "../include/HTTP_Request.hpp"
-#include "../include/String_Functions.hpp"
+#include "../lib/HTTP_Request.hpp"
+#include "../lib/String_Functions.hpp"
 
 using namespace std;
 
